@@ -46,7 +46,6 @@ public class FreemanTools extends JavaPlugin implements Listener {
 		setupPermissions();
 		getServer().getPluginManager().registerEvents(this, this);
 	}
-
 	
 	private boolean setupPermissions()
     {
@@ -56,43 +55,47 @@ public class FreemanTools extends JavaPlugin implements Listener {
         }
         return (permission != null);
     }
-
+	
+	/**
+	 * Check wherether the specified player has the specified permission node.
+	 * 
+	 * @param player the player to check.
+	 * @param node the permission node to check.
+	 * 
+	 * @return true if the player has the specified permission.
+	 */
 	public boolean has(Player player, String node) {
 		return permission != null && permission.has(player, "freemantools." + node);
 	}
 	
 	@EventHandler
 	public void playerHit(EntityDamageEvent subevent) {
-			
-			if(!(subevent instanceof EntityDamageByEntityEvent)) return;
-			EntityDamageByEntityEvent event = (EntityDamageByEntityEvent) subevent;
-			
-			if(!(event.getDamager() instanceof Player)) return;
-			
-			if(!(event.getEntity() instanceof Player)) return;
-			
-			Player player = (Player) event.getDamager();
-			Player target = (Player) event.getEntity();
+		if(!(subevent instanceof EntityDamageByEntityEvent)) return;
+		EntityDamageByEntityEvent event = (EntityDamageByEntityEvent) subevent;
+		if(!(event.getDamager() instanceof Player)) return;
+		if(!(event.getEntity() instanceof Player)) return;
 		
-			if(player.getItemInHand() == null || player.getItemInHand().getTypeId() != Material.STICK.getId()) return;
-			
-			if(!has(player, "slap.other")) return;//check if player has permission freemantools.slap.other
-			PlayerInventory inventory = player.getInventory();
-			ItemStack itemstack = new ItemStack(385, 1);
-			HashMap<Integer, ItemStack> rest = inventory.removeItem(itemstack);
-			
-			if(rest.size() != 0) {
-			}
-			else{
-				target.setFireTicks(10000);
-			}
-			player.sendMessage("you have slapped " + target.getDisplayName() + "!");
-			target.sendMessage("you were slapped by " + player.getDisplayName() + "!");
-			//getLogger().info("Player + hit");
-			Vector velocity = player.getLocation().getDirection().multiply(velocityFactor);
-			target.setVelocity(velocity);
-			event.setCancelled(true);
+		Player player = (Player) event.getDamager();
+		Player target = (Player) event.getEntity();
+		
+		if(player.getItemInHand() == null || player.getItemInHand().getTypeId() != Material.STICK.getId()) return;
+		if(!has(player, "slap.other")) return;//check if player has permission freemantools.slap.other
+		
+		PlayerInventory inventory = player.getInventory();
+		ItemStack itemstack = new ItemStack(385, 1);
+		HashMap<Integer, ItemStack> rest = inventory.removeItem(itemstack);
+		if(rest.size() != 0) {
 		}
+		else{
+			target.setFireTicks(10000);
+		}
+		player.sendMessage("you have slapped " + target.getDisplayName() + "!");
+		target.sendMessage("you were slapped by " + player.getDisplayName() + "!");
+		//getLogger().info("Player + hit");
+		Vector velocity = player.getLocation().getDirection().multiply(velocityFactor);
+		target.setVelocity(velocity);
+		event.setCancelled(true);
+	}
 	
 	@EventHandler(ignoreCancelled = true,priority = EventPriority.HIGHEST)
 	public void selfHit(PlayerInteractEvent event){
@@ -142,7 +145,6 @@ public class FreemanTools extends JavaPlugin implements Listener {
 				}
 			}
 		}
-	
 	@EventHandler (ignoreCancelled = true)
 	public void Freezeplayer(PlayerMoveEvent event){
 		
