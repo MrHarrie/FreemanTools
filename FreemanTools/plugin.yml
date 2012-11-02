@@ -1,12 +1,5 @@
 name: FreemanTools
 version: 0.1
 main: com.github.freeman21.FreemanTools.FreemanTools
-
-commands:
-   Firehit:
-      description: This is a Firehit command to toggle .
-      usage: /<command>
-      permission: FreemanTools.firehit
-      permission-message: You dont have permission to use Firehit
-      
+   
 softdepend: [Vault]
