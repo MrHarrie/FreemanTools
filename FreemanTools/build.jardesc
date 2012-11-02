@@ -11,7 +11,9 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <file path="/FreemanTools/license.txt"/>
+        <javaElement handleIdentifier="=FreemanTools/src"/>
         <file path="/FreemanTools/plugin.yml"/>
-        <javaElement handleIdentifier="=FreemanTools/src&lt;com.github.freeman21.FreemanTools{FreemanTools.java"/>
+        <file path="/FreemanTools/config.yml"/>
     </selectedElements>
 </jardesc>
