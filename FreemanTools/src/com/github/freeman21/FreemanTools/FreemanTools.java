@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 
 import net.milkbowl.vault.permission.Permission;
 
+
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Creeper;
@@ -41,10 +42,12 @@ public class FreemanTools extends JavaPlugin implements Listener {
 	private Permission permission = null;
 	@SuppressWarnings("unused")
 	private Logger log = Logger.getLogger("FreemanTools");
+	
 
 	public void onEnable(){
 		setupPermissions();
 		getServer().getPluginManager().registerEvents(this, this);
+		this.saveDefaultConfig();
 	}
 	
 	private boolean setupPermissions()
