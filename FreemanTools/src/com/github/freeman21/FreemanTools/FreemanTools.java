@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.logging.Logger;
 
 import net.milkbowl.vault.permission.Permission;
-//import com.github.freeman21.FreemanTools.ConfigManager;
+import com.github.freeman21.FreemanTools.ConfigManager;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -42,23 +42,23 @@ public class FreemanTools extends JavaPlugin implements Listener {
 	private Permission permission = null;
 	@SuppressWarnings("unused")
 	private Logger log = Logger.getLogger("FreemanTools");
-//	private ConfigManager 		config 			= null;
-//	private FreemanTools plugin;
-//	
-//	public void ConfigManager(FreemanTools FreemanTools) {
-//		plugin = FreemanTools;
-//	}
+	private ConfigManager 		config 			= null;
+	private FreemanTools plugin;
+	
+	public void ConfigManager(FreemanTools FreemanTools) {
+		plugin = FreemanTools;
+	}
 
 	public void onEnable(){
 		setupPermissions();
 		getServer().getPluginManager().registerEvents(this, this);
-		//config = new ConfigManager(this);
-		//config.loadConfig();
+		config = new ConfigManager(this);
+		config.loadConfig();
 	}
 	
-	//public ConfigManager getConfigManager() {
-       // return config;
-    //}
+	public ConfigManager getConfigManager() {
+        return config;
+    }
 	
 	private boolean setupPermissions()
     {
@@ -75,7 +75,7 @@ public class FreemanTools extends JavaPlugin implements Listener {
 	
 	@EventHandler
 	public void playerHit(EntityDamageEvent subevent) {
-		//if (plugin.getConfigManager().SLAPPING_ENABLED) {
+		if (plugin.getConfigManager().SLAPPING_ENABLED) {
 			
 			if(!(subevent instanceof EntityDamageByEntityEvent)) return;
 			EntityDamageByEntityEvent event = (EntityDamageByEntityEvent) subevent;
@@ -115,7 +115,7 @@ public class FreemanTools extends JavaPlugin implements Listener {
 			target.setVelocity(velocity);
 			event.setCancelled(true);
 		}
-	//}
+	}
 	
 	@EventHandler(ignoreCancelled = true,priority = EventPriority.HIGHEST)
 	public void selfHit(PlayerInteractEvent event){
