@@ -111,6 +111,7 @@ public class FreemanTools extends JavaPlugin implements Listener {
 	}
 	
 	@EventHandler(ignoreCancelled = true)
+	
 	public void headDrop(EntityDeathEvent event)
 		{
 		Player Killer = event.getEntity().getKiller();
