@@ -1,0 +1,5 @@
+name: FreemanTools
+version: 0.1
+main: com.github.freeman21.FreemanTools
+ 
+softdepend: [Vault]

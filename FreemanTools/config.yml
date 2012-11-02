@@ -1,0 +1,9 @@
+slapping:
+     enabled: true
+     freeworld:
+       - world
+       - world_nether
+     paidworld:
+       - survival
+       - survival_nether
+     
