@@ -1,5 +1,5 @@
 name: FreemanTools
-version: 1.1
+version: 1.2
 main: com.github.freeman21.FreemanTools.FreemanTools
    
 softdepend: [Vault]
@@ -8,6 +8,8 @@ commands:
   blockhead:
       description: Put the block on your head.
       usage: /<command>
+      aliases: [bh]
   FreemanToolsVersion:
       description: Shows the version.
+      aliases: [ftv]
       usage: /<command>

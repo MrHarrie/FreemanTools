@@ -94,8 +94,6 @@ public class FreemanTools extends JavaPlugin implements Listener {
 		//if(!(event.getEntity() instanceof Player)) return;
 		
 		Player player = (Player) event.getDamager();
-		Entity target = event.getEntity();
-		
 		if(player.getItemInHand() == null || player.getItemInHand().getTypeId() != FreemanTools.this.getConfig().getInt("Freemanslap.SlapTool")) return;
 		if(!has(player, "slap.other")) return;//check if player has permission freemantools.slap.other
 		
@@ -105,13 +103,20 @@ public class FreemanTools extends JavaPlugin implements Listener {
 		if(rest.size() != 0) {
 		}
 		else{
-			target.setFireTicks(10000);
+			event.getEntity().setFireTicks(10000);
 		}
-		player.sendMessage("you have slapped a "+ event.getEntityType());
-		//target.sendMessage("you were slapped by " + player.getDisplayName() + "!");
+		
+		if (event.getEntity() instanceof Player){
+			Player target = (Player) event.getEntity();
+			player.sendMessage("you have slapped a "+ target.getDisplayName());
+			target.sendMessage("you were slapped by " + player.getDisplayName() + "!");
+		}else{
+			player.sendMessage("you have slapped a "+ event.getEntityType().getName());
+		}
+
 		//getLogger().info("Player + hit");
 		Vector velocity = player.getLocation().getDirection().multiply(FreemanTools.this.getConfig().getInt("Freemanslap.FallVelocity"));
-		target.setVelocity(velocity);
+		event.getEntity().setVelocity(velocity);
 		event.setCancelled(true);
 		}
 	}   
