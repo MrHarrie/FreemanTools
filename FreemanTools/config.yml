@@ -1,2 +1,12 @@
 Freemanslap:
-    enabled: true
+    velocity: 5 #factor the player is pushed with
+    enabled:
+        self: true
+        other: true
+
+FreemanHeadDrop:
+    enabled: true # enabled or disabled
+    chance: 5 # percentage of change
+
+FreemanBlockHead:
+    enabled: true # enabled or disabled
