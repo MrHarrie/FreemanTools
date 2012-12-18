@@ -1,6 +1,6 @@
 name: FreemanTools
-version: 1.2
-main: com.github.freeman21.FreemanTools.FreemanTools
+version: 1.3
+main: com.freeman21.bukkit.FreemanTools
    
 softdepend: [Vault]
 

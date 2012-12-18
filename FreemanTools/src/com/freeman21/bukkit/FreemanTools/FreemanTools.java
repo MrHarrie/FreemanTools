@@ -4,7 +4,7 @@
  * 
  */
 
-package com.github.freeman21.FreemanTools;
+package com.freeman21.bukkit.FreemanTools;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -108,10 +108,10 @@ public class FreemanTools extends JavaPlugin implements Listener {
 		
 		if (event.getEntity() instanceof Player){
 			Player target = (Player) event.getEntity();
-			player.sendMessage("you have slapped a "+ target.getDisplayName());
-			target.sendMessage("you were slapped by " + player.getDisplayName() + "!");
+			player.sendMessage("You have slapped a "+ target.getDisplayName() + "!");
+			target.sendMessage("You were slapped by " + player.getDisplayName() + "!");
 		}else{
-			player.sendMessage("you have slapped a "+ event.getEntityType().getName());
+			player.sendMessage("You have slapped "+ event.getEntityType().getName() + "!");
 		}
 
 		//getLogger().info("Player + hit");
@@ -218,12 +218,12 @@ public class FreemanTools extends JavaPlugin implements Listener {
 					}
 					else if (Target instanceof Zombie)
 					{
-						ItemStack itemstack = new ItemStack(397, 1,(short)2);
+						ItemStack itemstack = new ItemStack(397, 1,(short)3);
 						Target.getWorld().dropItemNaturally(Drop, itemstack);
 					}
 					else if (Target instanceof Player)
-					{
-						ItemStack itemstack = new ItemStack(397, 1,(short)3);
+					{	 
+						ItemStack itemstack = new ItemStack(397, 1,(short)2);
 						Target.getWorld().dropItemNaturally(Drop, itemstack);
 					}
 				}
@@ -234,6 +234,8 @@ public class FreemanTools extends JavaPlugin implements Listener {
 	public void Freezeplayer(PlayerMoveEvent event){
 		
 	}
+	
+
 	
 	public void onDisable(){
 	}
