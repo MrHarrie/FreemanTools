@@ -4,7 +4,7 @@
  * 
  */
 
-package com.github.freeman21.FreemanTools;
+package com.github.freeman21;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,6 +46,7 @@ public class FreemanTools extends JavaPlugin implements Listener {
 	@SuppressWarnings("unused")
 	private Logger log = Logger.getLogger("FreemanTools");
 
+	@Override
 	public void onEnable() {
 		setupPermissions();
 		setConfig(null);
@@ -137,7 +138,7 @@ public class FreemanTools extends JavaPlugin implements Listener {
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
 	public void selfHit(PlayerInteractEvent event) throws InterruptedException {
 		if (FreemanTools.this.getConfig().getBoolean("Freemanslap.Enable.Self")) {
-			Player player = (Player) event.getPlayer();
+			Player player = event.getPlayer();
 			if (event.getAction() != Action.LEFT_CLICK_BLOCK)
 				return;
 			if (player.getItemInHand() == null
@@ -159,6 +160,7 @@ public class FreemanTools extends JavaPlugin implements Listener {
 		}
 	}
 
+	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label,
 			String[] args) {
 		if (cmd.getName().equalsIgnoreCase("blockhead")) { // If the player
@@ -261,6 +263,7 @@ public class FreemanTools extends JavaPlugin implements Listener {
 
 	}
 
+	@Override
 	public void onDisable() {
 	}
 
