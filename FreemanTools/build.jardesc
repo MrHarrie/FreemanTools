@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
 <jardesc>
     <jar path="D:/development/Bukkitserver/plugins/FreemanTools.jar"/>
-    <options buildIfNeeded="true" compress="true" descriptionLocation="/FreemanTools/build.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/Freemantools/build.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
     <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
     <selectedProjects/>
     <manifest generateManifest="true" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
@@ -11,9 +11,9 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
-        <file path="/FreemanTools/license.txt"/>
-        <javaElement handleIdentifier="=FreemanTools/src"/>
-        <file path="/FreemanTools/plugin.yml"/>
-        <file path="/FreemanTools/config.yml"/>
+        <file path="/Freemantools/config.yml"/>
+        <file path="/Freemantools/plugin.yml"/>
+        <javaElement handleIdentifier="=Freemantools/src"/>
+        <file path="/Freemantools/license.txt"/>
     </selectedElements>
 </jardesc>
